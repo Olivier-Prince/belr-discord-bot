@@ -27,7 +27,7 @@ ipython-genutils==0.2.0
 itemadapter==0.2.0
 itemloaders==1.0.4
 jmespath==0.10.0
-joblib==1.0.0
+joblib==1.2.0
 lxml==4.6.2
 mathparse==0.1.2
 multidict==5.1.0
