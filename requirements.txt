@@ -65,7 +65,7 @@ testpath==0.4.4
 thinc==7.0.8
 threadpoolctl==2.1.0
 tqdm==4.56.0
-Twisted==20.3.0
+Twisted==22.10.0
 typing-extensions==3.7.4.3
 w3lib==1.22.0
 wasabi==0.8.2
