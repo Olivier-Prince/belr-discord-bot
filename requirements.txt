@@ -31,7 +31,7 @@ joblib==1.2.0
 lxml==4.9.1
 mathparse==0.1.2
 multidict==5.1.0
-murmurhash==1.0.5
+murmurhash==1.0.9
 nltk==3.6.6
 olefile==0.46
 pandocfilters==1.4.2
