@@ -35,7 +35,7 @@ murmurhash==1.0.5
 nltk==3.6.6
 olefile==0.46
 pandocfilters==1.4.2
-parsel==1.6.0
+parsel==1.7.0
 Pint==0.16.1
 plac==0.9.6
 preshed==2.0.1
