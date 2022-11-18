@@ -64,7 +64,7 @@ srsly==1.0.5
 testpath==0.4.4
 thinc==7.0.8
 threadpoolctl==2.1.0
-tqdm==4.56.0
+tqdm==4.64.1
 Twisted==22.10.0
 typing-extensions==3.7.4.3
 w3lib==1.22.0
