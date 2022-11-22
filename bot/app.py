@@ -133,17 +133,17 @@ class Bot(discord.Client, Chat):
     async def on_ready(self):
         print("\n" + "=" * 80 + "\n")
         print('BOT is logged in as :')
-        print('\tName\t', self.user.name)
-        print('\tID\t', self.user.id)
+        print('\tName\n\t\t\t', self.user.name)
+        print('\tID\n\t\t\t', self.user.id)
         print('On Discord channel')
-        print("\tID\t", DISCORD_CHANNEL)
+        print("\tID\n\t\t\t", DISCORD_CHANNEL)
         print("Connected to Mongo server")
-        print(f"\tHost\t {db.client.HOST}:{db.client.PORT}")
-        print("\tDB\t\t", db.name)
+        print(f"\tHost\n\t\t\t{db.client.HOST}:{db.client.PORT}")
+        print("\tDB\n\t\t\t", db.name)
         print("\n" + "=" * 80 + "\n")
         print("Available TOPICS :")
         for topic in topics:
-            print("\t", topic)
+            print("\t\t\t", topic)
         print("\n" + "=" * 80 + "\n")
         channel = client.get_channel(DISCORD_CHANNEL)
         await channel.send(welcome_message)
@@ -370,7 +370,7 @@ class Bot(discord.Client, Chat):
 
                         try:
                             waiting_gif = await message.channel.send(
-                                file=discord.File('../assets/images/wait.gif'))
+                                file=discord.File('assets/images/wait.gif'))
                             resp, quest_id = mongodb_request(
                                 mess,
                                 best_topic

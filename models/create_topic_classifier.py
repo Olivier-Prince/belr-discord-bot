@@ -197,7 +197,7 @@ def main(filename):
     for topic in topics:
         query = {"Topic": topic, "PostTypeId": "1"}
         topic_size = collection.count_documents(query)
-        print(topic, "\n\t\tsize =", topic_size, "\n")
+        print("Posts", str.upper(topic), "\n\t\t\t", topic_size)
 
     # encode targets (str) to numerical (int)
     y = label_encoder.transform(target)
@@ -208,6 +208,8 @@ def main(filename):
     result = run_pipes([pipe0], splits=10, corpus=corpus, target=y)
     pickle.dump(pipe0, open(filename, 'wb'))
 
+    print("\nRESULTS :\n")
+
     return result
 
 
@@ -215,7 +217,8 @@ def main(filename):
 # RUNTIME PROCEDURE
 # -----------------------------------------------------------------------------
 if __name__ == '__main__':
-    print("\nTopic classifier results :\n")
+    print("\ncreate_topic_classifier is running ...\n")
     with pd.option_context('display.max_columns', None):
         print(print_table(main(file_name)))
-    print("\nTopic classifier saved to file", file_name)
+    print("\nTOPIC classifier saved to file", file_name)
+    print("\n" + "=" * 80 + "\n")

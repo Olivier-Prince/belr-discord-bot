@@ -80,10 +80,11 @@ try:
     collection_Rating = db.Rating
 
 except MongoClient.DoesNotExist:
-    print("⚠️ Could NOT connect to Mongo server")
+    print("\n" + "=" * 80 + "\n")
+    print("⚠️  Could NOT connect to Mongo server")
+    print("\n" + "=" * 80 + "\n")
 
 
-# data_path = fr'{os.getenv("HOME")}/WIP/belr-discord-chatbot/database'
 data_path = "stackexchange"
 # subdir = "workplace.meta.stackexchange.com"
 file_name_pattern = "Posts.xml"
@@ -142,22 +143,23 @@ def create_mongodb_database(src, file_name):
     init_present_posts = collection_Quest_Rep.count_documents({})
     print(init_present_posts, "posts are stored in", db.name)
 
-    # Scan Subdir SRC or DATA_PATH
-    # MAKE SURE THAT json OR xml FILES ARE IN
-    # A SUBDIR OF YOUR DATA_PATH
+    # Scan subdir SRC or DATA_PATH
+    # Make sure that json OR xml files are present
     for subdir in os.listdir(src):
         current_path = os.path.join(src, subdir)
-        print(current_path)
+        print(str.upper(current_path), "upload to MongoDB in progress ...")
 
         # Scan files in SUBDIR
         for file in os.listdir(current_path):
 
             # Posts.xml load into DB
             if file == file_name:
-                posts_tree = ET.parse(os.path.join(current_path, file))
+                filename = os.path.join(current_path, file)
+                xml_handle = open(filename, 'r')
+                posts_tree = ET.parse(xml_handle)
                 posts = posts_tree.getroot()
 
-                # TOPIC preprocessing depending on file is META
+                # TOPIC preprocessing depending on subdir is suffixed META
                 topic = subdir
                 # if "meta" in subdir:
                 #     topic = subdir[:-23]
@@ -165,7 +167,7 @@ def create_mongodb_database(src, file_name):
                 # else:
                 #     topic = subdir[:-17]
 
-                # Posts in "Posts.xml" stored in posts_list
+                # Posts from "Posts.xml" stored in posts_list
                 posts_list = [row.attrib for row in posts]
 
                 for post in posts_list:
@@ -188,7 +190,7 @@ def create_mongodb_database(src, file_name):
                             (post["PostTypeId"] == '1') and
                             (post['AnswerCount'] is not None))):
                         collection_Quest_Rep.insert_one(post)
-                        print("Post", post["_id"], "inserted")
+                        # print("Post", post["_id"], "inserted")
 
             if file == "my_export_en.json":
                 curent_file = os.path.join(current_path, file)
@@ -248,4 +250,7 @@ def create_mongodb_database(src, file_name):
 # RUNTIME PROCEDURE
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":
+    print("\n" + "=" * 80 + "\n")
+    print("create_db is running ...")
     create_mongodb_database(data_path, file_name_pattern)
+    print("\n" + "=" * 80 + "\n")
