@@ -11,7 +11,7 @@
 <!-- Badges -->
 <p>
   <a href="https://www.python.org/downloads/release/python-3814/">
-    <img src="(https://img.shields.io/badge/python-3.8-blue.svg" alt="python version" />
+    <img src="https://img.shields.io/badge/python-3.8-blue.svg" alt="python version" />
   </a>
   <a href="https://github.com/carloscuesta/gitmoji">
     <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/belr20/5b5005f852683fab26bd0ef5738ad9d6/raw/selenium-pom-gitmoji-badge.json" alt="gitmoji badge" />
