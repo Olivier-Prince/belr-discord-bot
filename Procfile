@@ -1,1 +1,1 @@
-worker: stark.py
+worker: app.py
