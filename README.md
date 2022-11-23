@@ -246,7 +246,7 @@ cd models
 python create_topic_classifier.py
 ```
 
-The BOT is now ready to answer your questions :thumbs_up:
+The BOT is now ready to answer your questions :thumbsup:
 
 
 <!-- Roadmap -->
