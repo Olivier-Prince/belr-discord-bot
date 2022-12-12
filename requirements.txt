@@ -9,7 +9,7 @@ aiohttp
 pymongo
 ipython
 autopep8
-nltk==3.7
+nltk==3.8
 ipykernel
 ipywidgets
 matplotlib
